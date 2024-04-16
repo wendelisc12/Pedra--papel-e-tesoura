@@ -1,0 +1,14 @@
+{
+  "name": "pedrapapeltesoura-app",
+  "version": "1.0.0",
+  "description": "Famoso jogo pedra papel e tesoura",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wendel isaac",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^5.0.0"
+  }
+}
