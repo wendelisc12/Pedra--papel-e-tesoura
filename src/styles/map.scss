@@ -1,0 +1,15 @@
+$primary:(
+    Scissors: hsl(40, 84%, 53%),
+    Paper:hsl(230, 89%, 65%),
+    Rock: hsl(349, 70%, 56%),
+);
+
+$neutral:(
+    DarkText: hsl(229, 25%, 31%),
+    ScoreText: hsl(229, 64%, 46%),
+    HeaderOutline: hsl(217, 16%, 45%),
+);
+
+$background:(
+    BgGradient: (hsl(214, 47%, 23%), hsl(237, 49%, 15%))
+)

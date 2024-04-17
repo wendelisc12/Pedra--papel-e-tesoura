@@ -1,0 +1,239 @@
+@use "map.scss";
+@use "padrao.scss";
+
+@mixin align-center(){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main{
+    background: radial-gradient(map-get(map.$background, BgGradient)) no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+#container{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    margin: 0 auto;
+    padding: 20px;
+    height: 100vh;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid map-get(map.$neutral, HeaderOutline );
+    padding: 20px;
+    border-radius: 20px;
+
+    #score-box{
+        width: 130px;
+        height: 100px;
+        @include align-center();
+        flex-direction: column;
+        background-color: white;
+        border-radius: 10px;
+
+        h1{
+            color: map-get(map.$neutral, DarkText);
+            font-size: 3em;
+        }
+
+        span{
+            color: map-get(map.$neutral, ScoreText);
+            font-weight: 500;
+            font-size: calc(1em + 2px);
+            text-transform: uppercase;
+        }
+    }
+}
+
+#modal-box{
+    display: none;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 100;
+}
+
+#modal{
+    @include align-center();
+    height: 100%;
+
+    &-content{
+        width: 340px;
+        height: 380px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        background-color: white;
+        flex-direction: column;
+        padding: 20px;
+
+        h1{
+            color: map-get(map.$neutral, DarkText );
+        }
+
+    }
+
+    &-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+
+    #close-modal{
+        @include align-center();
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+    }
+}
+
+#button-rules{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 140px;
+    height: 45px;
+    background-color: transparent;
+    border: 2px solid white;
+    font-size: 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color ease-in 300ms;
+
+    &:hover{
+        background-color: white;
+        color: map-get(map.$neutral, DarkText );
+    }
+
+}
+
+#switch-container{
+    @include align-center();
+    flex: 1;
+
+    #game-options{
+        width: 100%;
+        background: url('../../src/images/bg-triangle.svg') no-repeat center;
+
+        .option-button{
+            border: 1px solid red;
+            width: 160px;
+            height: 160px;
+            @include align-center();
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: inset 0px 8px 0 #5252527c;
+            transition: all ease-in 400ms;
+
+            &:hover{
+                box-shadow: inset 0px 12px 0 #5252527c;
+                transform: scale(1.1);
+            }
+        }
+
+        .paper{
+            border: 18px solid map-get(map.$primary, Paper);
+        }
+        .scissors{
+            border: 18px solid map-get(map.$primary, Scissors);
+        }
+        .rock{
+            border: 18px solid map-get(map.$primary, Rock);
+        }
+    }
+
+    #game-decision-box{
+        display: none;
+        width: 100%;
+    }
+
+    #game-decision{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        gap: 30px;
+
+        .game-decision-player{
+            color: white;
+            width: 250px;
+            @include align-center();
+            flex-direction: column;
+
+            h2{
+                margin-bottom: 40px;
+            }
+
+            .option{
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                background-color: rgba(17, 17, 17, 0.2);
+            }
+        }
+    }
+}
+
+#option-selected{
+    box-shadow: inset 0px 8px 0 #5252527c;
+    border: 1px solid red;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    @include align-center();
+    background-color: white;
+
+    &.paper{
+        border: 20px solid map-get(map.$primary, Paper);
+    }
+    &.scissors{
+        border: 20px solid map-get(map.$primary, Scissors);
+    }
+    &.rock{
+        border: 20px solid map-get(map.$primary, Rock);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #container{
+        width: 95% !important;
+
+        header{
+            img{
+                width: 130px !important;
+            }
+        }
+    }
+
+    #game-options{
+
+        .option-button{
+            width: 130px !important;
+            height: 130px !important;
+        }
+        .paper{
+            border: 13px solid map-get(map.$primary, Paper) !important;
+        }
+        .scissors{
+            border: 13px solid map-get(map.$primary, Scissors) !important;
+        }
+        .rock{
+            border: 13px solid map-get(map.$primary, Rock) !important;
+        }
+    }
+
+    #button-rules{
+        left: calc(50% - 70px) !important;
+    }
+}
