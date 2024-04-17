@@ -2,10 +2,70 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Pedra, papel e tesoura</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="build/styles/style.css">
 </head>
-<body>
-    
-</body>
+    <body>
+        <div id="modal-box">
+            <div id="modal">
+                <div id="modal-content">
+                    <div id="modal-header"><h1>RULES</h1><button id="close-modal"><img src="src/images/icon-close.svg" alt=""></button></div>
+                    <img src="src/images/image-rules.svg" alt="">
+                    
+                </div>
+            </div>
+        </div>
+
+        <button id="button-rules">RULES</button>
+
+        <main>
+            <div id="container">
+                <header>
+                    <img src="src/images/logo.svg" alt="">
+                    <div id="score-box">
+                        <span>score</span>
+                        <h1>0</h1>
+                    </div>
+                </header>
+
+                <div id="switch-container">
+                    <section id="game-options">
+                        <div style="display: flex; margin-bottom: 70px; align-items: center; justify-content: center; gap: 100px;">
+                            <button class="option-button paper"><img src="src/images/icon-paper.svg" alt=""></button>
+                            <button class="option-button scissors"><img src="src/images/icon-scissors.svg" alt=""></button>    
+                        </div>
+                        <div style="display: flex; margin-top: 50px; align-items: center; justify-content: center;">
+                            <button class="option-button rock"><img src="src/images/icon-rock.svg" alt=""></button>
+                        </div>
+                    </section>
+
+                    <section id="game-decision-box">
+                        <div id="game-decision">
+                            <div class="game-decision-player">
+                                <h2>You picked</h2>
+                                <div class="picked-option" id="player-option">
+                                    <div class="option"></div>
+                                </div>
+                            </div>
+
+                            <div class="game-decision-player">
+                                <h2>The house picked</h2>
+                                <div class="picked-option" id="house-option">
+                                    <div class="option"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>      
+        </main>
+
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="src/script/script.js"></script>
+    </body>
 </html>
