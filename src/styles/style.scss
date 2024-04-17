@@ -106,7 +106,7 @@ header{
     border: 2px solid white;
     font-size: 20px;
     color: white;
-    border-radius: 5px;
+    border-radius: 15px;
     cursor: pointer;
     font-weight: 600;
     transition: background-color ease-in 300ms;
@@ -123,11 +123,13 @@ header{
     flex: 1;
 
     #game-options{
+        padding: 10px;
+        flex: 1;
         width: 100%;
         background: url('../../src/images/bg-triangle.svg') no-repeat center;
 
         .option-button{
-            border: 1px solid red;
+            background-color: white;
             width: 160px;
             height: 160px;
             @include align-center();
@@ -163,7 +165,6 @@ header{
         align-items: center;
         justify-content: center;
         text-transform: uppercase;
-        gap: 30px;
 
         .game-decision-player{
             color: white;
@@ -185,9 +186,13 @@ header{
     }
 }
 
+.op{
+    display: none;
+}
+
 #option-selected{
+    
     box-shadow: inset 0px 8px 0 #5252527c;
-    border: 1px solid red;
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -236,4 +241,14 @@ header{
     #button-rules{
         left: calc(50% - 70px) !important;
     }
+}
+
+.scale-animation {
+    transform: scale(1.2);
+    transition: transform 0.5s ease-in-out;
+}
+
+.scale-back-animation {
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
 }
