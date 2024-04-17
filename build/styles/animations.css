@@ -1,0 +1,2 @@
+.scale-animation{transform:scale(1.2);transition:transform .5s ease-in-out}.scale-back-animation{transform:scale(1);transition:transform .5s ease-in-out}.player-side{transform:translateX(-60%);transition:transform 1s ease}.house-side{transform:translateX(60%);transition:transform 1s ease}.player-back{transform:translateX(60%);transition:transform 1s ease}.house-back{transform:translateX(-60%);transition:transform 1s ease}
+/*# sourceMappingURL=map/animations.css.map */

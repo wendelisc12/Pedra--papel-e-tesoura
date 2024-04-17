@@ -1,5 +1,6 @@
 @use "map.scss";
 @use "padrao.scss";
+@use "animations.scss";
 
 @mixin align-center(){
     display: flex;
@@ -135,23 +136,34 @@ header{
             @include align-center();
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: inset 0px 8px 0 #5252527c;
             transition: all ease-in 400ms;
 
-            &:hover{
-                box-shadow: inset 0px 12px 0 #5252527c;
-                transform: scale(1.1);
-            }
+
         }
 
         .paper{
             border: 18px solid map-get(map.$primary, Paper);
+            box-shadow: 0 8px 0 hsl(230, 49%, 49%), inset 0px 8px 0 #5252527c;
+            &:hover{
+                box-shadow: 0 12px 0 hsl(230, 49%, 49%), inset 0px 12px 0 #5252527c;
+                transform: scale(1.1);
+            }
         }
         .scissors{
             border: 18px solid map-get(map.$primary, Scissors);
+            box-shadow: 0 8px 0 hsl(40, 75%, 43%), inset 0px 8px 0 #5252527c;
+            &:hover{
+                box-shadow: 0 12px 0 hsl(40, 75%, 43%), inset 0px 12px 0 #5252527c;
+                transform: scale(1.1);
+            }
         }
         .rock{
             border: 18px solid map-get(map.$primary, Rock);
+            box-shadow: 0 8px 0 hsl(349, 55%, 42%), inset 0px 8px 0 #5252527c;
+            &:hover{
+                box-shadow: 0 12px 0 hsl(349, 55%, 42%), inset 0px 12px 0 #5252527c;
+                transform: scale(1.1);
+            }
         }
     }
 
@@ -165,6 +177,7 @@ header{
         align-items: center;
         justify-content: center;
         text-transform: uppercase;
+        position: relative;
 
         .game-decision-player{
             color: white;
@@ -181,6 +194,37 @@ header{
                 height: 200px;
                 border-radius: 50%;
                 background-color: rgba(17, 17, 17, 0.2);
+            }
+        }
+
+        &-result{
+            position: absolute;
+            display: none;
+            color: white;
+            text-align: center;
+
+            h1{
+                font-size: 3.2em;
+                margin-bottom: 20px;
+                text-shadow: 3px 3px 1px rgb(24, 24, 24);
+            }
+
+            #play-again{
+                width: 200px;
+                height: 50px;
+                border-radius: 10px;
+                cursor: pointer;
+                font-size: 22px;
+                border: 0;
+                color:#1d1d1d;
+                text-transform: uppercase;
+                font-weight: 500;
+                transition: all 400ms;
+
+                &:hover{
+                    color: rgb(255, 37, 37);
+                    box-shadow: 5px 5px 1px rgb(24, 24, 24);
+                }
             }
         }
     }
@@ -201,12 +245,15 @@ header{
 
     &.paper{
         border: 20px solid map-get(map.$primary, Paper);
+        box-shadow: 0 12px 0 hsl(230, 49%, 49%), inset 0px 12px 0 #5252527c;
     }
     &.scissors{
         border: 20px solid map-get(map.$primary, Scissors);
+        box-shadow: 0 12px 0 hsl(40, 75%, 43%), inset 0px 12px 0 #5252527c;
     }
     &.rock{
         border: 20px solid map-get(map.$primary, Rock);
+        box-shadow: 0 12px 0 hsl(349, 55%, 42%), inset 0px 12px 0 #5252527c;
     }
 }
 
@@ -241,14 +288,4 @@ header{
     #button-rules{
         left: calc(50% - 70px) !important;
     }
-}
-
-.scale-animation {
-    transform: scale(1.2);
-    transition: transform 0.5s ease-in-out;
-}
-
-.scale-back-animation {
-    transform: scale(1);
-    transition: transform 0.5s ease-in-out;
 }
