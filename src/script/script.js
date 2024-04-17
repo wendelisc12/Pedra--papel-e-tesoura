@@ -1,6 +1,9 @@
 $("document").ready(()=>{
 
     var escolhido = ""
+    var score = 0
+
+    $("#score-points").text(score)
 
     $("#button-rules").click(()=>{
         $("#modal-box").slideDown()
@@ -27,19 +30,23 @@ $("document").ready(()=>{
 
     function gameRules(chosen, houseChosen){
         if(chosen == houseChosen){
-            return "empate"
+            return "draw!"
         }else if(chosen == "paper" && houseChosen == "scissors" ){
-            return "perdeu"
+            return "you lose"
         }else if(chosen == "paper" && houseChosen == "rock"){
-            return "venceu"
+            score ++
+            return "you win"
+            
         }else if(chosen == "scissors" && houseChosen == "rock"){
-            return "perdeu"
+            return "you lose"
         }else if(chosen == "scissors" && houseChosen == "paper"){
-            return "venceu"
+            score ++
+            return "you win"
         }else if(chosen == "rock" && houseChosen == "paper"){
-            return "perdeu"
+            return "you lose"
         }else if(chosen == "rock" && houseChosen == "scissors"){
-            return "venceu"
+            score ++
+            return "you win"
         }   
     }
 
@@ -80,18 +87,45 @@ $("document").ready(()=>{
                     setTimeout(() => {
                         $(".op").removeClass("bounce-animation");
                         $(".op").addClass("scale-back-animation");
-                    }, 500);
+                    }, 400);
+
+                    var winner = gameRules(escolhido, houseChosen)
+
+                    var showWinner = setInterval(()=>{
+                        $("#decision-result").text(winner)
+                        $(".game-decision-player:first-child").addClass("player-side");
+                        $(".game-decision-player:last-child").addClass("house-side");                     
+ 
+                        $("#game-decision-result").fadeIn(800)
+                        $("#score-points").text(score)
+                        clearInterval(showWinner)
+                    },1100)
+
                     clearInterval(showChosenHouse)
-                }, 800);
-
-                
-
-
-                console.log(gameRules(escolhido, houseChosen))
-
+                }, 800);     
                 
             });
+
         }
     }
+
+    $("#play-again").click(function() {
+                    
+        $("#game-decision-box").slideUp(600, () => {
+            $("#game-options").slideDown(600);
+
+            $("#game-decision-result").fadeOut(400, function() {
+                $(".op").remove()
+                $("#house-option").html("<div class='option'></div>")
+    
+            });
+            $(".game-decision-player:first-child").removeClass("player-side");
+            $(".game-decision-player:last-child").removeClass("house-side");            
+    
+        });
+
+
+
+    });
 
 })
