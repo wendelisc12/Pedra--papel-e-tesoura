@@ -19,6 +19,11 @@
     transition: transform 1s ease;
 }
 
+.game-up{
+    transform: translateY(-50%);
+    transition: transform 1s ease;
+}
+
 .player-back{
     transform: translateX(60%);
     transition: transform 1s ease;
