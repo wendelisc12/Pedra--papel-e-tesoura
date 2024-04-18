@@ -344,7 +344,7 @@ header{
     }
 
     #game-decision-result{
-        bottom: 20px;
+        bottom: 60px;
     }
     .winn{
         position: absolute;
@@ -357,5 +357,9 @@ header{
     #button-rules{
         left: calc(50% - 70px) !important;
         
+    }
+
+    #responsive{
+        margin-bottom: 90px !important;
     }
 }
