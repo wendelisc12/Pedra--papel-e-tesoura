@@ -91,21 +91,38 @@ $("document").ready(()=>{
 
                     var winner = gameRules(escolhido, houseChosen)
 
-                    var showWinner = setInterval(()=>{
-                        $("#decision-result").text(winner)
-                        $(".game-decision-player:first-child").addClass("player-side");
-                        $(".game-decision-player:last-child").addClass("house-side");                     
- 
-                        $("#game-decision-result").fadeIn(800)
-                        $("#score-points").text(score)
-                        clearInterval(showWinner)
+                    if($(window).width() > 767){
+                        var showWinner = setInterval(()=>{
+                            $("#decision-result").text(winner)
+                            $(".game-decision-player:first-child").addClass("player-side");
+                            $(".game-decision-player:last-child").addClass("house-side");                     
+     
+                            $("#game-decision-result").fadeIn(800)
+                            $("#score-points").text(score)
+                            clearInterval(showWinner)
+    
+                            if(winner === "you win"){
+                               $("#player-win").addClass("winn")
+                            }else if(winner === "you lose"){
+                                $("#house-win").addClass("winn")  
+                            }
+                        },1100)
+                    }else{
+                        var showWinnerMobile = setInterval(()=>{
+                            $("#decision-result").text(winner)
+                            $(".game-decision-player:first-child").addClass("game-up");
+                            $(".game-decision-player:last-child").addClass("game-up");
+                            if(winner === "you win"){
+                                $("#player-win").addClass("winn")
+                             }else if(winner === "you lose"){
+                                 $("#house-win").addClass("winn")  
+                             }
+                             $("#score-points").text(score)
+                            $("#game-decision-result").fadeIn(800)
+                            clearInterval(showWinnerMobile)
+                        },1100)
 
-                        if(winner === "you win"){
-                           $("#player-win").addClass("winn")
-                        }else if(winner === "you lose"){
-                            $("#house-win").addClass("winn")  
-                        }
-                    },1100)
+                    }
 
                     clearInterval(showChosenHouse)
                 }, 600);     
@@ -128,6 +145,8 @@ $("document").ready(()=>{
             });
             $(".game-decision-player:first-child").removeClass("player-side");
             $(".game-decision-player:last-child").removeClass("house-side");
+            $(".game-decision-player:first-child").removeClass("game-up");
+            $(".game-decision-player:last-child").removeClass("game-up");
             $("#player-win").removeClass("winn")
             $("#house-win").removeClass("winn")    
     
