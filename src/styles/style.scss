@@ -129,6 +129,7 @@ header{
         width: 100%;
         background: url('../../src/images/bg-triangle.svg') no-repeat center;
 
+
         .option-button{
             background-color: white;
             width: 160px;
@@ -202,6 +203,7 @@ header{
             display: none;
             color: white;
             text-align: center;
+            z-index: 99;
 
             h1{
                 font-size: 3.2em;
@@ -232,6 +234,40 @@ header{
 
 .op{
     display: none;
+}
+
+.picked-option{
+    position: relative;
+
+    .winn{
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        top: calc(50% - 250px);
+        animation: winner-aura 1s ease-in;
+        right: calc(50% - 250px);
+        border: 40px solid #ffffff10;
+        @include align-center();
+        transform-origin: center;
+
+        .first-aura{
+            width: 75%;
+            height: 75%;
+            border-radius: 50%;
+            position: absolute;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+            background-color: #ffffff25;
+        }
+
+        .second-aura{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.4));
+            background-color: #ffffff2c;
+        }
+    }
 }
 
 #option-selected{
