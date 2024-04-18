@@ -54,13 +54,6 @@ $("document").ready(()=>{
         if(escolhido !=""){
             $("#game-options").slideUp(600, function() {
                 $("#game-decision-box").slideDown(600)
-                if(escolhido == "paper"){
-                    $("#player-option").html('<div id="option-selected" class="paper"><img src="src/images/icon-paper.svg" alt=""></div>')
-                }else if(escolhido == "scissors"){
-                    $("#player-option").html('<div id="option-selected" class="scissors"><img src="src/images/icon-scissors.svg" alt=""></div>')
-                }else if(escolhido == "rock"){
-                    $("#player-option").html('<div id="option-selected" class="rock"><img src="src/images/icon-rock.svg" alt=""></div>')
-                }
 
                 var randomNumber = 1 + Math.floor(Math.random() * 3);
                 var houseChosen = ""
@@ -74,6 +67,13 @@ $("document").ready(()=>{
                 }
                 
                 var showChosenHouse = setInterval(() => {
+                    if(escolhido == "paper"){
+                        $("#player-option").html('<div class="op"><div id="option-selected" class="paper"><img src="src/images/icon-paper.svg" alt=""></div></div>')
+                    }else if(escolhido == "scissors"){
+                        $("#player-option").html('<div class="op"><div id="option-selected" class="scissors"><img src="src/images/icon-scissors.svg" alt=""></div></div>')
+                    }else if(escolhido == "rock"){
+                        $("#player-option").html('<div class="op"><div id="option-selected" class="rock"><img src="src/images/icon-rock.svg" alt=""></div></div>')
+                    }
                     if(houseChosen == "paper"){
                         $("#house-option").html('<div class="op"><div id="option-selected" class="paper"><img src="src/images/icon-paper.svg" alt=""></div></div>')     
                     }else if(houseChosen == "scissors"){
@@ -99,10 +99,16 @@ $("document").ready(()=>{
                         $("#game-decision-result").fadeIn(800)
                         $("#score-points").text(score)
                         clearInterval(showWinner)
+
+                        if(winner === "you win"){
+                           $("#player-win").addClass("winn")
+                        }else if(winner === "you lose"){
+                            $("#house-win").addClass("winn")  
+                        }
                     },1100)
 
                     clearInterval(showChosenHouse)
-                }, 800);     
+                }, 600);     
                 
             });
 
@@ -116,11 +122,14 @@ $("document").ready(()=>{
 
             $("#game-decision-result").fadeOut(400, function() {
                 $(".op").remove()
+                $("#player-option").html("<div class='option'></div>")
                 $("#house-option").html("<div class='option'></div>")
     
             });
             $(".game-decision-player:first-child").removeClass("player-side");
-            $(".game-decision-player:last-child").removeClass("house-side");            
+            $(".game-decision-player:last-child").removeClass("house-side");
+            $("#player-win").removeClass("winn")
+            $("#house-win").removeClass("winn")    
     
         });
 
