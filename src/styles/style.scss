@@ -307,8 +307,8 @@ header{
     #game-options{
 
         .option-button{
-            width: 120px !important;
-            height: 120px !important;
+            width: 110px !important;
+            height: 110px !important;
         }
         .paper{
             border: 13px solid map-get(map.$primary, Paper) !important;
@@ -322,7 +322,7 @@ header{
     }
 
     .game-decision-player h2{
-        font-size: 1.4em;
+        font-size: 1.1em;
     }
 
     #option-selected{
